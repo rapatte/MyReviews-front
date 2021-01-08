@@ -3,3 +3,4 @@ function is_similar(a, b){
     : typeof a === typeof b ? "Same type"
     : false
 }
+is_similar();
