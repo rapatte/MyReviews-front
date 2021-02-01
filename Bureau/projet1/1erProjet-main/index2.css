@@ -1,0 +1,383 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    background: black;
+    font-weight: 200;
+    font-size: 68.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#entreprise {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 4%;
+}
+
+header {
+    text-align: center;
+    height: 80vh;
+    background-image: url(images/imgheader.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.headertext>a>img {
+    text-align: center;
+    position: absolute;
+    bottom: 90%;
+    right: 28%;
+    width: 20px;
+    height: 20px;
+}
+
+div.headertext>a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    bottom: 85%;
+    right: 5%;
+    position: absolute;
+    font-weight: bold;
+}
+
+#main {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid blanchedalmond;
+}
+
+nav {
+    top: 0;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+nav>ul {
+    display: flex;
+    list-style: none;
+    flex: 1;
+    justify-content: center;
+    justify-content: space-between;
+    padding-right: 2%;
+    align-items: center;
+    background: black;
+    font-size: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: gold;
+    margin-left: 50px;
+}
+
+li.logo {
+    display: flex;
+    align-items: center;
+}
+
+#main {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid blanchedalmond;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a img {
+    width: 60px;
+    height: 60px;
+}
+
+header>h1 {
+    color: gold;
+    font-size: 4rem;
+    bottom: 60%;
+    right: 70%;
+    position: absolute;
+    line-height: 40px;
+}
+
+
+/* contenu */
+
+section {
+    margin-bottom: 4%;
+}
+
+
+/* contact */
+
+#Contact>h1 {
+    color: white;
+    font-style: italic;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 30px;
+}
+
+.para {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+#Contact {
+    background-color: black;
+    color: gold;
+    padding-top: 4%;
+}
+
+form {
+    margin: auto;
+    width: 34%;
+    border: solid;
+    padding-left: 9%;
+    padding-bottom: 1%;
+    color: rgb(rgb(249, 249, 253));
+    border: 2px solid rgb(rgb(0, 0, 0));
+    background-color: black;
+}
+
+input {
+    padding: 5px;
+    font-size: x-large;
+}
+
+label {
+    line-height: 23px;
+}
+
+label>span {
+    font-size: 1rem;
+}
+
+input {
+    display: block;
+    margin-bottom: 1%;
+    width: 72%;
+    font-size: 1.2rem;
+}
+
+input[ type="submit"] {
+    display: block;
+    margin-bottom: 1%;
+    width: 72%;
+    border-radius: 3%;
+    background-color: gold;
+    padding-left: 1%;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.coment {
+    width: 50x;
+    height: 100px;
+    border: 1px solid rgb(0, 0, 0);
+    flex-wrap: wrap;
+}
+
+
+/* presentationd de l'entreprise */
+
+.site-wrap {
+    color: white;
+    padding: 40px;
+    line-height: 28px;
+    margin: 20px auto;
+    padding: 10px;
+    transform: scale(0.98);
+    transition: transform 0.5s;
+    font-size: 1.2rem;
+}
+
+.site-wrap>h1 {
+    padding-top: 5%;
+    padding-bottom: 2%;
+    font-size: 2rem;
+}
+
+
+/* equipe */
+
+.photo {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.presentations>h1 {
+    padding-bottom: 2%;
+    font-size: 2rem;
+    padding-left: 5%;
+}
+
+#titreprezequipe {
+    display: flex;
+    justify-content: center;
+}
+
+.fil-discrbption {
+    background-color: black;
+    padding: 3%;
+    border: 2px solid;
+    margin-right: 12%;
+    margin-left: 12%;
+    border-top-right-radius: 167px 140px;
+    display: flex;
+}
+
+.discription {
+    padding-left: 2%;
+}
+
+.antoin-dicription {
+    background-color: black;
+    padding: 3%;
+    border: 2px solid;
+    margin-right: 12%;
+    margin-left: 12%;
+    display: flex;
+}
+
+.samira-disription {
+    background-color: black;
+    padding: 3%;
+    border: 2px solid;
+    margin-right: 12%;
+    margin-left: 12%;
+    border-bottom-left-radius: 167px 140px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.fil-discrbption:hover {
+    position: relative;
+    top: 2px;
+}
+
+.samira-disription:hover {
+    position: relative;
+    top: 2px;
+}
+
+.antoin-dicription:hover {
+    position: relative;
+    top: 2px;
+}
+
+h1,
+.presentations,
+h4,
+p {
+    color: white;
+    line-height: 24px;
+}
+
+
+/* footer */
+
+.mainfoot {
+    background: white;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    flex-wrap: wrap;
+}
+
+.mainfoot h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.liensutiles ul {
+    list-style: none;
+}
+
+.liensutiles ul a {
+    color: black;
+    text-decoration: none;
+}
+
+.liensutiles ul a:hover {
+    opacity: 2;
+    color: black;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons a {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 2em;
+    margin: 10%;
+    cursor: pointer;
+}
+
+.icons a:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.mainfoot .copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    margin-bottom: 0;
+}
+
+
+/* fixe nav */
+
+.menunav {
+    position: fixed;
+    top: 0;
+    flex: 1;
+}
+
+.menunav li.logo {
+    max-width: 300px;
+}
+
+li.logo {
+    max-width: 0;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.actived {
+    border-bottom: 1px solid gold;
+    ;
+}
