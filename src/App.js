@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./app.css";
+import ReviewList from "./components/reviewList";
 import reviewService from "./services/review";
 
 function App() {
@@ -11,13 +12,17 @@ function App() {
     try {
       const allReviews = await reviewService.getAll();
       setReviews(allReviews);
-      console.log(reviews.data);
+      console.log(reviews);
     } catch (e) {
       setError(e);
       console.log(error);
     }
   }, []);
-  return <>hey</>;
+  return (
+    <div>
+      <ReviewList reviews={reviews} />
+    </div>
+  );
 }
 
 export default App;
