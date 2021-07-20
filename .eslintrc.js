@@ -25,7 +25,12 @@ module.exports = {
     "no-console": 0,
     "object-curly-newline": 0,
     "operator-linebreak": 0,
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/forbid-prop-types": 0,
