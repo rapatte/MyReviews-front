@@ -1,28 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import "./app.css";
-import ReviewList from "./components/reviewList";
-import reviewService from "./services/review";
+import Home from "./pages/home";
+import "./main.scss";
 
 function App() {
-  const [reviews, setReviews] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(async () => {
-    try {
-      const allReviews = await reviewService.getAll();
-      setReviews(allReviews);
-      console.log(reviews);
-    } catch (e) {
-      setError(e);
-      console.log(error);
-    }
-  }, []);
-  return (
-    <div>
-      <ReviewList reviews={reviews} />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;

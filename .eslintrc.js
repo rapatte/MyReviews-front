@@ -20,6 +20,14 @@ module.exports = {
   root: true,
   rules: {
     "implicit-arrow-linebreak": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
     "import/prefer-default-export": 0,
     indent: [0, 4],
     "no-console": 0,
