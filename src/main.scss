@@ -3,6 +3,14 @@ $corail: #f47a60;
 $gris: #ced7d8;
 $turquoise: #7fe7dc;
 
-.header {
-  background-color: $canard;
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+
+* {
+  font-family: "Sora";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  body {
+    background-color: $gris;
+  }
 }

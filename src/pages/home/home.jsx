@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import "./home.scss";
-import ReviewList from "../../components/reviewList";
+import ReviewList from "../../components/reviewList/reviewList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reviewService from "../../services/review";
 import ReviewListHeading from "../../components/reviewListHeading";
-import { Header } from "../../components/common";
+import SearchForm from "../../components/searchForm";
 
 function Home() {
   const [searchValue, setSearchValue] = useState("");
@@ -38,7 +37,7 @@ function Home() {
   };
 
   useEffect(() => {
-    getSearch();
+    if (searchValue.length > 0) getSearch();
   }, [searchValue]);
 
   useEffect(() => {
@@ -59,17 +58,17 @@ function Home() {
 
   return (
     <div className="container-fluid movie-app">
-      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
-      {searchValue.length > 0 ? (
+      <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
+      {searchValue.length > 0 && (
         <div>
           <div className="row">
             <ReviewListHeading heading="Recherche" />
           </div>
-          <div className="row">
+          <div className="Row d-flex justify-content-start overflow-auto flex-nowrap">
             <ReviewList reviews={searchedReview} />
           </div>
         </div>
-      ) : null}
+      )}
       <div className="row">
         <ReviewListHeading heading="Dernières reviews" />
       </div>
