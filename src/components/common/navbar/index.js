@@ -1,5 +1,5 @@
 import React from "react";
-import { PAGE_HOME, PAGE_LOGIN } from "../../../constants/router";
+import { PAGE_HOME, PAGE_LOGIN, PAGE_REVIEWS } from "../../../constants/router";
 import {
   Nav,
   NavLink,
@@ -17,12 +17,8 @@ const Navbar = () => (
       </NavLink>
       <Bars />
       <NavMenu>
-        <NavLink to="/reviews" activeStyle>
-          Les reviews
-        </NavLink>
-        <NavLink to="/addReview" activeStyle>
-          Créer une review
-        </NavLink>
+        <NavLink to={PAGE_REVIEWS}>Les reviews</NavLink>
+        <NavLink to="/addReview">Créer une review</NavLink>
       </NavMenu>
       <NavBtn>
         <NavBtnLink to={PAGE_LOGIN}>Se connecter</NavBtnLink>

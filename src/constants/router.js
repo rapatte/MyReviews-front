@@ -1,5 +1,5 @@
 export const PAGE_HOME = `/`;
-export const PAGE_REVIEWDETAILS = `/reviewlist/`;
+export const PAGE_REVIEWS = `/reviews/`;
 export const PAGE_LOGIN = `/login/`;
 
 export const routes = [
@@ -8,8 +8,8 @@ export const routes = [
     path: PAGE_HOME,
   },
   {
-    name: "Review details",
-    path: PAGE_REVIEWDETAILS,
+    name: "Reviews",
+    path: PAGE_REVIEWS,
   },
   {
     name: "Login",

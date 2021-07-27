@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./searchForm.scss";
 
 function SearchForm({ searchValue, setSearchValue }) {
   return (
-    <div>
+    <div className="searchBox">
       <input
         className="form-control"
         placeholder="Rechercher..."
