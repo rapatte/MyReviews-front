@@ -8,14 +8,15 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
   },
+  parser: "@babel/eslint-parser",
   parserOptions: {
+    ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
     sourceType: "module",
   },
-  // parser: 'babel-eslint',
   plugins: ["prettier", "sort-keys-fix", "sort-destructure-keys"],
   root: true,
   rules: {

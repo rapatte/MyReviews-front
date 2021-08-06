@@ -59,16 +59,24 @@ function Home() {
   return (
     <div className="container-fluid movie-app">
       <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
-      {searchValue.length > 0 && (
-        <div>
-          <div className="row">
-            <ReviewListHeading heading="Recherche" />
+      {searchValue.length > 0 &&
+        (searchedReview.length > 0 ? (
+          <div>
+            <div className="row">
+              <ReviewListHeading heading="Recherche" />
+            </div>
+            <div className="Row d-flex justify-content-start overflow-auto flex-nowrap">
+              <ReviewList reviews={searchedReview} />
+            </div>
           </div>
-          <div className="Row d-flex justify-content-start overflow-auto flex-nowrap">
-            <ReviewList reviews={searchedReview} />
+        ) : (
+          <div>
+            <div className="row">
+              <ReviewListHeading heading="Recherche" />
+            </div>
+            <p>Aucune review correspondante</p>
           </div>
-        </div>
-      )}
+        ))}
       <div className="row">
         <ReviewListHeading heading="Dernières reviews" />
       </div>
