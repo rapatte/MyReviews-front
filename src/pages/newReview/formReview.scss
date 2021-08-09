@@ -1,0 +1,11 @@
+.newReviewForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7vh;
+}
+.error-msg-reviewForm {
+  color: rgb(228, 87, 87);
+  margin: 0 auto;
+}

@@ -1,6 +1,7 @@
 export const PAGE_HOME = `/`;
 export const PAGE_REVIEWS = `/reviews/`;
 export const PAGE_LOGIN = `/login/`;
+export const PAGE_NEWREVIEW = `/addReview`;
 
 export const routes = [
   {
@@ -10,6 +11,10 @@ export const routes = [
   {
     name: "Reviews",
     path: PAGE_REVIEWS,
+  },
+  {
+    name: "addReviews",
+    path: PAGE_NEWREVIEW,
   },
   {
     name: "Login",

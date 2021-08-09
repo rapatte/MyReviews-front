@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component, createContext } from "react";
 
@@ -7,10 +10,10 @@ class AppProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
       isAuth: false,
-      setUser: this.setUser,
       setAuth: this.setAuth,
+      setUser: this.setUser,
+      user: null,
     };
   }
 

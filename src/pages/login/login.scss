@@ -1,0 +1,19 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7vh;
+  .error-msg {
+    color: rgb(228, 87, 87);
+  }
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.formTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}

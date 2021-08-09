@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-import { getToken } from "./common";
+import appContext from "../contexts/context";
 
 function PrivateRoute({ component: Component, ...rest }) {
+  const verif = useContext(appContext);
   return (
     <Route
       {...rest}
       render={(props) =>
-        getToken() ? (
+        verif.isAuth ? (
           <Component {...props} />
         ) : (
           <Redirect

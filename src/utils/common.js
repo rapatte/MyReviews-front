@@ -10,6 +10,9 @@ export const getUser = () => {
 export const removeUserSession = () => {
   sessionStorage.removeItem("token");
   sessionStorage.removeItem("user");
+  document.cookie =
+    "authcookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  document.location.reload();
 };
 
 // set the token and user from the session storage

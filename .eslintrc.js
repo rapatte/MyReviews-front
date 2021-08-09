@@ -8,13 +8,12 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
   },
-  parser: "@babel/eslint-parser",
+  parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
     sourceType: "module",
   },
   plugins: ["prettier", "sort-keys-fix", "sort-destructure-keys"],
