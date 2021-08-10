@@ -1,7 +1,8 @@
 export const PAGE_HOME = `/`;
 export const PAGE_REVIEWS = `/reviews/`;
 export const PAGE_LOGIN = `/login/`;
-export const PAGE_NEWREVIEW = `/addReview`;
+export const PAGE_NEWREVIEW = `/addReview/`;
+export const PAGE_DETAILS = `/details/`;
 
 export const routes = [
   {
@@ -14,6 +15,10 @@ export const routes = [
   },
   {
     name: "addReviews",
+    path: PAGE_NEWREVIEW,
+  },
+  {
+    name: "detailsReview",
     path: PAGE_NEWREVIEW,
   },
   {

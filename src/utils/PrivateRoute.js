@@ -12,9 +12,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         verif.isAuth ? (
           <Component {...props} />
         ) : (
-          <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
-          />
+          <Redirect to={{ pathname: "/login" }} />
         )
       }
     />
@@ -23,7 +21,6 @@ function PrivateRoute({ component: Component, ...rest }) {
 
 PrivateRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  location: PropTypes.object.isRequired,
 };
 
 export default PrivateRoute;

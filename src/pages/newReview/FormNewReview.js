@@ -78,9 +78,12 @@ function FormNewReview() {
         <label htmlFor="genre">Genre</label>
         <input
           type="text"
-          onChange={(e) => setGenre(e.target.value)}
+          onChange={(e) => {
+            setGenre([e.target.value]);
+          }}
           value={genre}
         />
+        {console.log(genre)}
         <input
           type="button"
           value={loading ? "Chargement..." : "Poster la review"}
