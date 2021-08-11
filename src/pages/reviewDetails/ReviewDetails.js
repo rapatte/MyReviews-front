@@ -35,6 +35,10 @@ function ReviewDetails() {
     history.push("/");
   };
 
+  const goToModifier = () => {
+    history.push(`/update/${title}`);
+  };
+
   useEffect(() => {
     getTheReview();
   }, []);
@@ -55,6 +59,9 @@ function ReviewDetails() {
           <button type="button" onClick={handleDelete}>
             Confirmer
           </button>
+          <button type="button" onClick={goToModifier}>
+            Modifier la review
+          </button>
         </div>
       </Modal>
       {data ? (
@@ -72,14 +79,23 @@ function ReviewDetails() {
           />
           <p>
             Catégorie: {data.category} Genre:{" "}
-            {/* {data.genres ? data.genres[0].name : "Chargement..."} */}
+            {data.genres ? data.genres[0].name : null}
           </p>
           <p>{data.resume}</p>
           <p>Note: {data.score}/20</p>
+          <p>
+            Review créée le{" "}
+            {data.createdAt ? data.createdAt.split("T")[0] : null}
+          </p>
           {isAuth && (
-            <button onClick={handleClick} type="button">
-              Supprimer la review
-            </button>
+            <>
+              <button onClick={handleClick} type="button">
+                Supprimer la review
+              </button>
+              <button onClick={goToModifier} type="button">
+                Modifier la review
+              </button>
+            </>
           )}
         </div>
       ) : (

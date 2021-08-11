@@ -8,6 +8,7 @@ const reviewService = {
   getLatest: async () => api.get("/reviews/latest"),
   getOne: async (title) => api.get(`/reviews/${title}`),
   getSearchReview: async (title) => api.get(`/reviews/review/${title}`),
+  updateReview: async (title, review) => api.put(`/reviews/${title}`, review),
 };
 
 export default reviewService;

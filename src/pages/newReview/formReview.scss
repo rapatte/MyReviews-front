@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 7vh;
+  input,
+  select {
+    margin-bottom: 10px;
+  }
 }
 .error-msg-reviewForm {
   color: rgb(228, 87, 87);

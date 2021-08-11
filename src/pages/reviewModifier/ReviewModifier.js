@@ -1,12 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import reviewService from "../../services/review";
-import "./formReview.scss";
-import genreService from "../../services/genres";
 import { PAGE_DETAILS } from "../../constants/router";
+import genreService from "../../services/genres";
+import reviewService from "../../services/review";
+import "./reviewModifier.scss";
 
-function FormNewReview() {
+function ReviewModifier() {
+  const [review, setReview] = useState({});
   const [title, setTitle] = useState("");
   const [resume, setResume] = useState("");
   const [trailer, setTrailer] = useState("");
@@ -14,23 +16,40 @@ function FormNewReview() {
   const [poster, setPoster] = useState("");
   const [category, setCategory] = useState("");
   const [genres, setGenres] = useState([]);
-  const [genre, setGenre] = useState([]);
+  const [listGenre, setListGenre] = useState([]);
+  const [genre, setGenre] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setError] = useState("");
-
   const history = useHistory();
+  const titleUrl = history.location.pathname.split("/")[2];
 
-  const data = { category, genre, poster, resume, score, title, trailer };
+  const data = { category, genres, poster, resume, score, title, trailer };
+  const getReview = async () => {
+    const response = await reviewService.getOne(titleUrl);
+    setReview(response.data);
+    setGenre([response.data.genres][0][0].name);
+    setTitle(response.data.title);
+    setTrailer(response.data.trailer);
+    setScore(response.data.score);
+    setPoster(response.data.poster);
+    setResume(response.data.resume);
+    setCategory(response.data.category);
+  };
+
+  useEffect(() => {
+    getReview();
+  }, []);
+
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
     if (title !== "" || resume !== "") {
       try {
-        const response = await reviewService.createReview(data);
+        const response = await reviewService.updateReview(review.title, data);
         console.log(response);
         setLoading(false);
         setError("");
-        history.push(`${PAGE_DETAILS}${data.title}`);
+        history.push(`${PAGE_DETAILS}${title}`);
       } catch (e) {
         if (e.response.data.errors) setError(e.response.data.errors[0].message);
         else {
@@ -45,10 +64,13 @@ function FormNewReview() {
   };
   const getGenres = async () => {
     const response = await genreService.getAll();
-    setGenres(response.data);
+    setListGenre(response.data);
   };
   return (
     <>
+      <p>En train de modifier {review.title}.</p>
+      <img src={review.poster} alt="poster" />
+      {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
       <form className="newReviewForm">
         <label htmlFor="title">Titre</label>
         <input
@@ -83,13 +105,8 @@ function FormNewReview() {
           value={poster}
         />
         <label htmlFor="category">Catégorie</label>
-        {/* <input
-          type="text"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
-        /> */}
         <select onChange={(e) => setCategory(e.target.value)}>
-          <option value="">--Choisir une catégorie--</option>
+          <option value={category}>{category}</option>
           <option value="film">Film</option>
           <option value="serie">Série</option>
           <option value="anime">Anime</option>
@@ -97,23 +114,26 @@ function FormNewReview() {
         <label htmlFor="genre">Genre</label>
         <select
           onClick={getGenres}
-          onChange={(e) => setGenre([e.target.value])}
+          onChange={(e) => setGenres([{ name: e.target.value }])}
         >
-          <option value="">--Choisir un genre--</option>
-          {genres.map((el) => (
-            <option value={el.name}>{el.name}</option>
+          <option defaultValue={genres} value={genres.name}>
+            {genre}
+          </option>
+          {listGenre.map((el) => (
+            <option key={el.id} value={el.name}>
+              {el.name}
+            </option>
           ))}
         </select>
         <input
           type="button"
-          value={loading ? "Chargement..." : "Poster la review"}
+          value={loading ? "Chargement..." : "Modifier la review"}
           disabled={loading}
           onClick={handleSubmit}
         />
       </form>
-      {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
     </>
   );
 }
 
-export default FormNewReview;
+export default ReviewModifier;

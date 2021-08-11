@@ -3,6 +3,7 @@ export const PAGE_REVIEWS = `/reviews/`;
 export const PAGE_LOGIN = `/login/`;
 export const PAGE_NEWREVIEW = `/addReview/`;
 export const PAGE_DETAILS = `/details/`;
+export const PAGE_MODIFIER = `/update/`;
 
 export const routes = [
   {
@@ -16,6 +17,10 @@ export const routes = [
   {
     name: "addReviews",
     path: PAGE_NEWREVIEW,
+  },
+  {
+    name: "addReviews",
+    path: PAGE_MODIFIER,
   },
   {
     name: "detailsReview",

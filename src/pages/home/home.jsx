@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import ReviewList from "../../components/reviewList/reviewList";
@@ -57,63 +58,65 @@ function Home() {
   }, []);
 
   return (
-    <div className="container-fluid movie-app">
-      <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
-      {searchValue.length > 0 &&
-        (searchedReview.length > 0 ? (
-          <div>
-            <div className="row">
-              <ReviewListHeading heading="Recherche" />
+    <>
+      <div className="container-fluid movie-app">
+        <SearchForm searchValue={searchValue} setSearchValue={setSearchValue} />
+        {searchValue.length > 0 &&
+          (searchedReview.length > 0 ? (
+            <div>
+              <div className="row">
+                <ReviewListHeading heading="Recherche" />
+              </div>
+              <div className="Row d-flex justify-content-start overflow-auto flex-nowrap">
+                <ReviewList reviews={searchedReview} />
+              </div>
             </div>
-            <div className="Row d-flex justify-content-start overflow-auto flex-nowrap">
-              <ReviewList reviews={searchedReview} />
+          ) : (
+            <div>
+              <div className="row">
+                <ReviewListHeading heading="Recherche" />
+              </div>
+              <p>Aucune review correspondante</p>
             </div>
-          </div>
-        ) : (
-          <div>
-            <div className="row">
-              <ReviewListHeading heading="Recherche" />
-            </div>
-            <p>Aucune review correspondante</p>
-          </div>
-        ))}
-      <div className="row">
-        <ReviewListHeading heading="Dernières reviews" />
+          ))}
+        <div className="row">
+          <ReviewListHeading heading="Dernières reviews" />
+        </div>
+        <div className="row">
+          <ReviewList reviews={latestReviews} />
+        </div>
+        <div className="row">
+          <ReviewListHeading heading="Top 5 film" />
+        </div>
+        <div className="row">
+          {topFilm.length > 0 ? (
+            <ReviewList reviews={topFilm} />
+          ) : (
+            <p>Pas encore de reviews</p>
+          )}
+        </div>
+        <div className="row">
+          <ReviewListHeading heading="Top 5 anime" />
+        </div>
+        <div className="row">
+          {topAnime.length > 0 ? (
+            <ReviewList reviews={topAnime} />
+          ) : (
+            <p>Pas encore de reviews</p>
+          )}
+        </div>
+        <div className="row">
+          <ReviewListHeading heading="Top 5 serie" />
+        </div>
+        <div className="row">
+          {topSerie.length > 0 ? (
+            <ReviewList reviews={topSerie} />
+          ) : (
+            <p>Pas encore de reviews</p>
+          )}
+        </div>
       </div>
-      <div className="row">
-        <ReviewList reviews={latestReviews} />
-      </div>
-      <div className="row">
-        <ReviewListHeading heading="Top 5 film" />
-      </div>
-      <div className="row">
-        {topFilm.length > 0 ? (
-          <ReviewList reviews={topFilm} />
-        ) : (
-          <p>Pas encore de reviews</p>
-        )}
-      </div>
-      <div className="row">
-        <ReviewListHeading heading="Top 5 anime" />
-      </div>
-      <div className="row">
-        {topAnime.length > 0 ? (
-          <ReviewList reviews={topAnime} />
-        ) : (
-          <p>Pas encore de reviews</p>
-        )}
-      </div>
-      <div className="row">
-        <ReviewListHeading heading="Top 5 serie" />
-      </div>
-      <div className="row">
-        {topSerie.length > 0 ? (
-          <ReviewList reviews={topSerie} />
-        ) : (
-          <p>Pas encore de reviews</p>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 
