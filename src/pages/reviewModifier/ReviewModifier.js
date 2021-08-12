@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from "react";
@@ -28,6 +29,7 @@ function ReviewModifier() {
     const response = await reviewService.getOne(titleUrl);
     setReview(response.data);
     setGenre([response.data.genres][0][0].name);
+    setGenres([response.data.genres][0]);
     setTitle(response.data.title);
     setTrailer(response.data.trailer);
     setScore(response.data.score);
@@ -45,8 +47,7 @@ function ReviewModifier() {
     event.preventDefault();
     if (title !== "" || resume !== "") {
       try {
-        const response = await reviewService.updateReview(review.title, data);
-        console.log(response);
+        await reviewService.updateReview(review.title, data);
         setLoading(false);
         setError("");
         history.push(`${PAGE_DETAILS}${title}`);
@@ -91,6 +92,8 @@ function ReviewModifier() {
           type="text"
           onChange={(e) => setTrailer(e.target.value)}
           value={trailer}
+          onClick={(e) => (e.target.value = "")}
+          onBlur={(e) => (e.target.value = trailer)}
         />
         <label htmlFor="score">Note</label>
         <input
@@ -103,6 +106,8 @@ function ReviewModifier() {
           type="text"
           onChange={(e) => setPoster(e.target.value)}
           value={poster}
+          onClick={(e) => (e.target.value = "")}
+          onBlur={(e) => (e.target.value = trailer)}
         />
         <label htmlFor="category">Catégorie</label>
         <select onChange={(e) => setCategory(e.target.value)}>
@@ -116,7 +121,7 @@ function ReviewModifier() {
           onClick={getGenres}
           onChange={(e) => setGenres([{ name: e.target.value }])}
         >
-          <option defaultValue={genres} value={genres.name}>
+          <option defaultValue={genre} value={genres.name}>
             {genre}
           </option>
           {listGenre.map((el) => (
@@ -131,6 +136,7 @@ function ReviewModifier() {
           disabled={loading}
           onClick={handleSubmit}
         />
+        <input type="button" value="Annuler" onClick={() => history.goBack()} />
       </form>
     </>
   );

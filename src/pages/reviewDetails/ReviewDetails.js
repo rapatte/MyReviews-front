@@ -19,7 +19,7 @@ function ReviewDetails() {
     setIsOpen(false);
   }
 
-  const title = history.location.pathname.split("/")[2];
+  const title = history.location.pathname.split("/")[3];
 
   const getTheReview = async () => {
     const response = await reviewService.getOne(title);

@@ -1,0 +1,23 @@
+.allReviews {
+  text-decoration: none;
+  table {
+    width: 80vw;
+    img {
+      width: 45px;
+      height: 67px;
+    }
+    tbody {
+      td {
+        .poster {
+          width: 45px !important;
+          height: 67px !important;
+        }
+      }
+      tr {
+        &:nth-child(odd) {
+          background-color: lightcyan;
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,9 @@ function SearchForm({ searchValue, setSearchValue }) {
       <button type="button" onClick={() => searchButton("serie")}>
         Séries
       </button>
+      <button type="button" onClick={() => searchButton("")}>
+        Effacer recherche
+      </button>
     </div>
   );
 }

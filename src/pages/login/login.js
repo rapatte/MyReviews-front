@@ -30,7 +30,6 @@ const Login = (props) => {
         setMessage("");
         context.setAuth(true);
         context.setUser(response.data.user);
-        console.log(context);
         props.history.push("/");
       } catch (e) {
         setMessage(e.response.data.message);

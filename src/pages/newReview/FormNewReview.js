@@ -12,7 +12,7 @@ function FormNewReview() {
   const [trailer, setTrailer] = useState("");
   const [score, setScore] = useState("");
   const [poster, setPoster] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(null);
   const [genres, setGenres] = useState([]);
   const [genre, setGenre] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,10 +24,9 @@ function FormNewReview() {
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
-    if (title !== "" || resume !== "") {
+    if (title !== "" || resume !== "" || category) {
       try {
-        const response = await reviewService.createReview(data);
-        console.log(response);
+        await reviewService.createReview(data);
         setLoading(false);
         setError("");
         history.push(`${PAGE_DETAILS}${data.title}`);
@@ -47,6 +46,7 @@ function FormNewReview() {
     const response = await genreService.getAll();
     setGenres(response.data);
   };
+  console.log(category);
   return (
     <>
       <form className="newReviewForm">
@@ -99,7 +99,9 @@ function FormNewReview() {
           onClick={getGenres}
           onChange={(e) => setGenre([e.target.value])}
         >
-          <option value="">--Choisir un genre--</option>
+          <option onClick={() => setGenre([""])} value="">
+            --Choisir un genre--
+          </option>
           {genres.map((el) => (
             <option value={el.name}>{el.name}</option>
           ))}
