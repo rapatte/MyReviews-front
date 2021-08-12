@@ -1,0 +1,20 @@
+.row {
+  display: flex !important;
+  justify-content: flex-start !important;
+  overflow-x: auto !important;
+  flex-wrap: nowrap !important;
+  .poster {
+    width: auto !important;
+    img {
+      width: 185px !important;
+      height: 275px !important;
+    }
+  }
+}
+.poster {
+  width: auto !important;
+  img {
+    width: 185px !important;
+    height: 275px !important;
+  }
+}
