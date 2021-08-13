@@ -14,7 +14,7 @@ function FormNewReview() {
   const [poster, setPoster] = useState("");
   const [category, setCategory] = useState(null);
   const [genres, setGenres] = useState([]);
-  const [genre, setGenre] = useState([]);
+  const [genre, setGenre] = useState([""]);
   const [loading, setLoading] = useState(false);
   const [errors, setError] = useState("");
 
@@ -46,7 +46,6 @@ function FormNewReview() {
     const response = await genreService.getAll();
     setGenres(response.data);
   };
-  console.log(category);
   return (
     <>
       <form className="newReviewForm">
@@ -83,11 +82,6 @@ function FormNewReview() {
           value={poster}
         />
         <label htmlFor="category">Catégorie</label>
-        {/* <input
-          type="text"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
-        /> */}
         <select onChange={(e) => setCategory(e.target.value)}>
           <option value="">--Choisir une catégorie--</option>
           <option value="film">Film</option>
@@ -99,9 +93,7 @@ function FormNewReview() {
           onClick={getGenres}
           onChange={(e) => setGenre([e.target.value])}
         >
-          <option onClick={() => setGenre([""])} value="">
-            --Choisir un genre--
-          </option>
+          <option value="">--Choisir un genre--</option>
           {genres.map((el) => (
             <option value={el.name}>{el.name}</option>
           ))}
@@ -113,6 +105,7 @@ function FormNewReview() {
           onClick={handleSubmit}
         />
       </form>
+      {console.log(data)}
       {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
     </>
   );
