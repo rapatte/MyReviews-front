@@ -1,6 +1,45 @@
+$canard: #316879;
+
 .reviewDetails {
+  margin: 20px;
+  iframe {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+  }
+  .head {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    .titlecateg {
+      margin: 20px;
+    }
+  }
+  .bottom {
+    display: flex;
+    justify-content: center;
+    .resume {
+      width: 50vw;
+      border: 4px solid $canard;
+      margin: 10px;
+      padding: 10px;
+    }
+    .notedate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   img {
     width: 185px !important;
     height: 275px !important;
+  }
+  .buttonsdetails {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
   }
 }

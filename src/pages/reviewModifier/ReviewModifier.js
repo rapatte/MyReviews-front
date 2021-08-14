@@ -130,7 +130,6 @@ function ReviewModifier() {
             </option>
           ))}
         </select>
-        {console.log(genres)}
         <input
           type="button"
           value={loading ? "Chargement..." : "Modifier la review"}

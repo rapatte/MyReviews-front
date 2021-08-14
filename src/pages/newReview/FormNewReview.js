@@ -105,7 +105,6 @@ function FormNewReview() {
           onClick={handleSubmit}
         />
       </form>
-      {console.log(data)}
       {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
     </>
   );

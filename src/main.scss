@@ -12,5 +12,23 @@ $turquoise: #7fe7dc;
   padding: 0;
   body {
     background-color: $gris;
+    button {
+      border-radius: 4px;
+      background: #7fe7dc;
+      padding: 10px 22px;
+      color: #000;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      margin-left: 24px;
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        background: #fff;
+        color: #010606;
+      }
+      border: 2px solid $canard;
+    }
   }
 }

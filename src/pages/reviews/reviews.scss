@@ -1,6 +1,18 @@
 .allReviews {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   table {
+    button {
+      background: white;
+
+      margin: 0 5px;
+    }
+    th {
+      padding: 5px;
+
+      text-align: center;
+    }
     width: 80vw;
     img {
       width: 45px;
@@ -8,6 +20,9 @@
     }
     tbody {
       td {
+        padding: 5px;
+
+        text-align: center;
         .poster {
           width: 45px !important;
           height: 67px !important;
