@@ -15,18 +15,20 @@ function SearchForm({ searchValue, setSearchValue }) {
         onChange={(event) => setSearchValue(event.target.value)}
       />
       <p>Chercher par catégorie :</p>
-      <button type="button" onClick={() => searchButton("film")}>
-        Films
-      </button>
-      <button type="button" onClick={() => searchButton("anime")}>
-        Animes
-      </button>
-      <button type="button" onClick={() => searchButton("serie")}>
-        Séries
-      </button>
-      <button type="button" onClick={() => searchButton("")}>
-        Effacer recherche
-      </button>
+      <div className="buttonssearch">
+        <button type="button" onClick={() => searchButton("film")}>
+          Films
+        </button>
+        <button type="button" onClick={() => searchButton("anime")}>
+          Animes
+        </button>
+        <button type="button" onClick={() => searchButton("serie")}>
+          Séries
+        </button>
+        <button type="button" onClick={() => searchButton("")}>
+          Effacer recherche
+        </button>
+      </div>
     </div>
   );
 }
