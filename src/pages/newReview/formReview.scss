@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 7vh;
+  margin-top: 5vh;
   input,
   select {
     margin-bottom: 10px;
@@ -11,5 +11,6 @@
 }
 .error-msg-reviewForm {
   color: rgb(228, 87, 87);
-  margin: 0 auto;
+  text-align: center;
+  margin-top: 2vh;
 }

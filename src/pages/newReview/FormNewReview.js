@@ -48,6 +48,7 @@ function FormNewReview() {
   };
   return (
     <>
+      {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
       <form className="newReviewForm">
         <label htmlFor="title">Titre</label>
         <input
@@ -105,7 +106,6 @@ function FormNewReview() {
           onClick={handleSubmit}
         />
       </form>
-      {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
     </>
   );
 }

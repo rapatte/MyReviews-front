@@ -1,4 +1,16 @@
 .searchBox {
+  .form-control {
+    margin-bottom: 2vh;
+  }
+  .catSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    margin: 0;
+  }
   width: 50vw;
   margin: 5px auto 5px auto;
   button {

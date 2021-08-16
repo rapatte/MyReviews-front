@@ -1,4 +1,12 @@
-img {
-  width: 185px !important;
-  height: 275px !important;
+.headModifier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+  img {
+    width: 45px;
+    height: 67px;
+    margin-bottom: 2vh;
+  }
 }

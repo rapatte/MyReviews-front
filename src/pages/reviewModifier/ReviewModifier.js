@@ -69,8 +69,10 @@ function ReviewModifier() {
   };
   return (
     <>
-      <p>En train de modifier {review.title}.</p>
-      <img src={review.poster} alt="poster" />
+      <div className="headModifier">
+        <img src={review.poster} alt="poster" />
+        <p>En train de modifier {review.title}.</p>
+      </div>
       {errors ? <p className="error-msg-reviewForm">{errors}</p> : null}
       <form className="newReviewForm">
         <label htmlFor="title">Titre</label>
